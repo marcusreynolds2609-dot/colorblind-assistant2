@@ -61,7 +61,7 @@ The app creates a tray icon with a menu:
 - Exit
 
 ## Vision simulation (Protanopia)
-The UI includes a button labeled “Protanopia ✓”. The codebase contains an LMS-based protanopia simulator intended to show a simulated color for accessibility testing.
+protonopia coming soon
 
 ## Build & run (from source)
 This project targets **.NET 10 (Windows)** and WPF:
