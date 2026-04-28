@@ -61,7 +61,7 @@ The app creates a tray icon with a menu:
 - Exit
 
 ## Vision simulation (Protanopia)
-protonopia coming soon
+coming soon
 
 ## Build & run (from source)
 This project targets **.NET 10 (Windows)** and WPF:
