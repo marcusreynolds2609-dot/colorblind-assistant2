@@ -1,0 +1,138 @@
+<Window x:Class="Colorblind_Asisstant.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Colorblind Assistant Overlay - Vision Simulation Enabled"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        AllowsTransparency="False"
+        Background="#FF1B1B1B"
+        SizeToContent="WidthAndHeight"
+        Topmost="True"
+        ShowInTaskbar="False"
+        SnapsToDevicePixels="True"
+        UseLayoutRounding="True">
+
+    <Border x:Name="ReadoutCard"
+            MaxWidth="400"
+            Padding="16"
+            Background="#FF1B1B1B"
+            BorderBrush="#99FFFFFF"
+            BorderThickness="1">
+        <StackPanel>
+            <!-- Header Section with Navigation Button -->
+            <Border x:Name="HeaderSection" 
+                    Height="45"
+                    CornerRadius="8,8,0,0"
+                    Background="#2A2A2A"
+                    Margin="-4,-4,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="WindowTitleText"
+                               Text="Vision Simulation Mode"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               VerticalAlignment="Center"
+                               Foreground="#FFFFFF" />
+                    <Border Width="1" 
+                            Height="30" 
+                            Margin="8,0,0,0" 
+                            Background="#444444"/>
+                    <Button x:Name="ToggleVisionModeButton"
+                            Content="Protanopia ✓"
+                            Width="160"
+                            FontSize="12"
+                            FontWeight="Medium"
+                            Background="#2E8B57"
+                            BorderThickness="0"
+                            VerticalAlignment="Center"
+                            Click="ToggleVisionModeButton_Click" />
+                </StackPanel>
+            </Border>
+
+            <TextBlock x:Name="StatusText"
+                       TextWrapping="Wrap"
+                       FontSize="12"
+                       Text="Live Scan - Color Vision Simulation Active" />
+            
+            <TextBlock x:Name="ColorLabelText"
+                       Margin="0,6,0,8"
+                       FontSize="26"
+                       FontWeight="SemiBold"
+                       Text="Scanning..." />
+            
+            <StackPanel x:Name="ColorPreviewPanel"
+                        Orientation="Horizontal">
+                <Border x:Name="PrimaryColorPreview"
+                        Width="30"
+                        Height="30"
+                        Margin="0,0,8,0"
+                        CornerRadius="15"
+                        BorderThickness="1" />
+                <Border x:Name="SecondaryColorPreview"
+                        Width="30"
+                        Height="30"
+                        Margin="0,0,12,0"
+                        CornerRadius="15"
+                        BorderThickness="1"
+                        Visibility="Collapsed" />
+                <TextBlock x:Name="CompactModeText"
+                           VerticalAlignment="Center"
+                           FontSize="14"
+                           FontWeight="Medium"
+                           Visibility="Collapsed"
+                           Text="Color only" />
+            </StackPanel>
+            
+            <StackPanel x:Name="DetailPanel">
+                <StackPanel Margin="0,8,0,0"
+                            Orientation="Horizontal">
+                    <StackPanel>
+                        <TextBlock x:Name="ColorHexText"
+                                   FontFamily="Consolas"
+                                   FontSize="14"
+                                   Text="Average: #000000" />
+                        <TextBlock x:Name="CursorPositionText"
+                                   FontSize="12"
+                                   Text="X: 0  Y: 0" />
+                    </StackPanel>
+                </StackPanel>
+                
+                <TextBlock x:Name="ContrastText"
+                           Margin="0,10,0,0"
+                           FontSize="13"
+                           Text="Contrast pending..." />
+                
+                <TextBlock x:Name="ContrastDetailText"
+                           Margin="0,2,0,0"
+                           FontSize="12"
+                           TextWrapping="Wrap"
+                           Text="Black text: --  White text: --" />
+                
+                <TextBlock x:Name="MagnifierTitleText"
+                           Margin="0,12,0,6"
+                           FontSize="12"
+                           Text="5x5 Pixel Magnifier" />
+                
+                <Border x:Name="MagnifierFrame"
+                        Width="110"
+                        Height="110"
+                        Padding="4"
+                        CornerRadius="12"
+                        BorderThickness="1"
+                        HorizontalAlignment="Left">
+                    <UniformGrid x:Name="MagnifierGrid"
+                                 Rows="5"
+                                 Columns="5" />
+                </Border>
+                
+                <TextBlock x:Name="HintText"
+                           Margin="0,12,0,0"
+                           FontSize="11"
+                           TextWrapping="Wrap"
+                           Text="Freeze and copy: Ctrl+Space&#10;Toggle details: Ctrl+Shift+H&#10;Exit overlay: Ctrl+Shift+Q&#10;&#10;Vision Simulation: Toggle button above shows simulated color for protanopia (red-blindness)" />
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Window>
